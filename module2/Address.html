@@ -1,0 +1,27 @@
+<template>
+    <h1 class="h1">Permanent Address</h1>
+    <p class="p">Enter permanent address as govt Id Proof</p>
+    <lightning-input type="text" label="Address Line 1" onchange={currentAdd1}></lightning-input> 
+    <lightning-input type="text" label="Address Line 2" onchange={currentAdd2}></lightning-input>
+    <lightning-input type="text" label="LandMark" onchange={currentLandmark}></lightning-input>
+    <lightning-input type="text" label="Zip Code" onchange={currentZipCode}></lightning-input>
+    <h2 class="h2">Current Address</h2>
+    <lightning-input type="checkbox" label="Same as permanent Address" onchange={checkBox}></lightning-input>
+    <template if:true={checkBoxValue}>
+        <lightning-card>
+        
+        
+        <lightning-input type="text" label="Address Line 1" value={currAdd1}></lightning-input>
+        <lightning-input type="text" label="Address Line 2" value={currAdd2}></lightning-input>
+        <lightning-input type="text" label="LandMark" value={currLand}></lightning-input>
+        <lightning-input type="text" label="Zip Code" value={currZip}></lightning-input>
+    </lightning-card>
+         
+    </template>
+    <template if:false={checkBoxValue}>
+        <lightning-input class="inputColor" label="Address Line 1" name= "currAdd1" ></lightning-input>
+        <lightning-input class="inputColor" label="Address Line 2" name= "currAdd2" ></lightning-input>
+        <lightning-input class="inputColor" label="Landmark" name= "currLand" ></lightning-input>
+        <lightning-input class="inputColor" label="Zip code" name= "currZipCode" ></lightning-input>
+    </template>
+</template>
