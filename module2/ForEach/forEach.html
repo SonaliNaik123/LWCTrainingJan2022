@@ -1,0 +1,21 @@
+<template>
+    <lightning-card icon-name="standard:contact" title="For:Each Demo"> 
+        <table class="slds-table  slds-table_bordered slds-table_col-bordered">  
+    <tr>
+        <th>Index</th>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+    </tr>
+    <template for:each={contacts} for:item="cc" for:index="index">
+        <tr key={cc.id}>
+            <td>{cc.index}</td>
+            <td>{cc.id}</td>
+            <td>{cc.name}</td> 
+            <td>{cc.email}</td>
+        </tr>
+
+    </template>
+         </table>
+</lightning-card>
+</template>
