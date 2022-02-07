@@ -1,0 +1,26 @@
+<template>
+    <lightning-button label="Show All Fields" onclick={showAllFields}></lightning-button>
+    <template if:true={showFields}>
+        <lightning-record-form record-id={recordId} object-api-name="Opportunity" layout-type="Full" columns="2" mode="edit" 
+       onsuccess={handleSuccess}>
+       
+    </lightning-record-form>
+</template>
+ 
+
+    
+    <template if:false={showFields}>
+    <lightning-card title="Opportunity Quick Create" icon-name="standard:opportunity">
+        <lightning-record-edit-form record-id={recordId} object-api-name="Opportunity" onsuccess={handleSuccess} >
+           <lightning-input-field field-name="Name"></lightning-input-field>
+           <lightning-input-field field-name="CloseDate"></lightning-input-field>
+           <lightning-input-field field-name="StageName"></lightning-input-field>
+           <lightning-input-field field-name="AccountId"></lightning-input-field>
+        
+       <lightning-button label="Save" type="submit"></lightning-button>
+        <lightning-button label="Cancel" onclick={resetFormAction}></lightning-button>
+    </lightning-record-edit-form>
+    </lightning-card>
+    </template>
+    
+</template>
