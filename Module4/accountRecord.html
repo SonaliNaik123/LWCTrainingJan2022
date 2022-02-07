@@ -1,0 +1,29 @@
+<template>
+    <lightning-button label="Show All Fields" onclick={showAllFields}></lightning-button>
+    <template if:true={showFields}>
+        <lightning-record-form record-id={recordId} object-api-name="Account" layout-type="Full" columns="2" mode="edit" 
+       onsuccess={handleSuccess}>
+       
+    </lightning-record-form>
+</template>
+ 
+
+    
+    <template if:false={showFields}>
+    <lightning-card title="Account Quick Create" icon-name="standard:account">
+        <lightning-record-form record-id={recordId} object-api-name="Account" onsuccess={handleSuccess} fields={fields} >
+           <lightning-input-field field-name="Name"></lightning-input-field>
+           <lightning-input-field field-name="AnnualRevenue"></lightning-input-field>
+           <lightning-input-field field-name="Type"></lightning-input-field>
+           <lightning-input-field field-name="Rating"></lightning-input-field>
+        </lightning-record-form>
+      <!--  <lightning-button label="Save" type="submit"></lightning-button>
+        <lightning-button label="Cancel" onclick={resetFormAction}></lightning-button> !-->
+    </lightning-card>
+    </template>
+    
+    
+    
+
+    
+</template>
